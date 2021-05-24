@@ -1,0 +1,12 @@
+<% layout('layouts/boilerplate') %>
+<h1 class="text-center">Welcome to LoLStat</h1>
+<div class="form-group row">
+    <div class="col-xs-4">
+        <form action="/lol/search" method="GET">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" name="summoner" placeholder="Summoner Name" aria-describedby="searchbar">
+                <button class="btn btn-outline-secondary" type="button" id="searchbar">LS</button>
+            </div>
+        </form>
+    </div>
+</div>
