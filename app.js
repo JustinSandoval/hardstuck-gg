@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const ejsMate = require('ejs-mate')
 const methodOverride = require('method-override')
 const path = require('path')
-const getMatchData = require('./src/js/match')
+const getQueueData = require('./src/js/queueRank')
 const getSummonerData = require('./src/js/summoner')
 require('dotenv').config()
 const API_KEY = process.env.API_KEY
@@ -14,6 +14,7 @@ app.engine('ejs', ejsMate)
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 
+app.use('/img', express.static(__dirname + '/images'))
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 
@@ -24,11 +25,11 @@ app.get('/', (req, res) => {
 app.get('/lol/search', async (req, res) => {
     try {
         const { summoner } = req.query
-        const matches = await getMatchData(summoner, API_KEY)
+        const queue = await getQueueData(summoner, API_KEY)
         const profile = await getSummonerData(summoner, API_KEY)
-        console.log(matches)
-        // console.log(profile)
-        res.render('search', { matches, profile })
+        console.log(queue)
+        console.log(profile)
+        res.render('search', { queue, profile })
     } catch (e) {
         console.dir(e)
     }

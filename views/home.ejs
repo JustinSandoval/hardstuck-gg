@@ -1,12 +1,16 @@
 <% layout('layouts/boilerplate') %>
-<h1 class="text-center">Welcome to LoLStat</h1>
-<div class="form-group row">
-    <div class="col-xs-4">
+<h1 class="text-center">Hardstuck.gg</h1>
+<div class="row">
+    <div class="col-lg-4 order-2">
         <form action="/lol/search" method="GET">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" name="summoner" placeholder="Summoner Name" aria-describedby="searchbar">
-                <button class="btn btn-outline-secondary" type="button" id="searchbar">LS</button>
+                <input type="text" class="form-control" name="summoner" placeholder="Summoner name..." aria-describedby="searchbar">
+                <button class="btn btn-outline-secondary" type="submit" id="searchbar">
+                    <img src="../img/hardstuck.jpg" alt=""width="40" height="45">
+                </button>
             </div>
         </form>
+    </div>
+    <div class="col-lg-4">
     </div>
 </div>
